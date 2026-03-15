@@ -4,13 +4,7 @@
 import { motion } from "framer-motion";
 import { useState } from "react";
 
-export const metadata = {
-  title: "Внедрение ЭДО — Центр Внедрения",
-  description:
-    "Настройка и внедрение электронного документооборота (ЭДО). Подключение Диадок, Контур, СБИС и интеграция с 1С.",
-  keywords:
-    "внедрение ЭДО, электронный документооборот, Диадок, Контур, СБИС, настройка ЭДО, интеграция 1С",
-};
+
 
 export default function EdoLanding() {
   const [form, setForm] = useState({ name: "", phone: "", company: "" });
