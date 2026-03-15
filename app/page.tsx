@@ -1,21 +1,29 @@
 "use client";
 
-import Head from "next/head";
+
 import { motion } from "framer-motion";
 import { useState } from "react";
+
+export const metadata = {
+  title: "Внедрение ЭДО — Центр Внедрения",
+  description:
+    "Настройка и внедрение электронного документооборота (ЭДО). Подключение Диадок, Контур, СБИС и интеграция с 1С.",
+  keywords:
+    "внедрение ЭДО, электронный документооборот, Диадок, Контур, СБИС, настройка ЭДО, интеграция 1С",
+};
 
 export default function EdoLanding() {
   const [form, setForm] = useState({ name: "", phone: "", company: "" });
   const [sent, setSent] = useState(false);
 
-  async function handleSubmit(e) {
+  async function handleSubmit(e: React.FormEvent<HTMLFormElement>) {
     e.preventDefault();
 
     const message = `Новая заявка с сайта:%0AИмя: ${form.name}%0AТелефон: ${form.phone}%0AКомпания: ${form.company}`;
 
     // ВСТАВЬ СЮДА СВОЙ TELEGRAM BOT TOKEN И CHAT ID
-    const botToken = "YOUR_TELEGRAM_BOT_TOKEN";
-    const chatId = "YOUR_CHAT_ID";
+    const botToken = "8613525145:AAE3xvFX3qpn6gNMQ3SqQw0G-yxO5xP5PWE";
+    const chatId = "814769878";
 
     try {
       await fetch(`https://api.telegram.org/bot${botToken}/sendMessage?chat_id=${chatId}&text=${message}`);
@@ -27,26 +35,7 @@ export default function EdoLanding() {
   }
   return (
     <>
-      <Head>
-        <title>Внедрение ЭДО — Центр Внедрения</title>
-        <meta name="description" content="Настройка и внедрение электронного документооборота (ЭДО). Подключение Диадок, Контур, СБИС и интеграция с 1С. Центр Внедрения." />
-        <meta name="keywords" content="внедрение ЭДО, электронный документооборот, Диадок, Контур, СБИС, настройка ЭДО, интеграция 1С" />
-        <meta name="robots" content="index, follow" />
-
-        <script
-          type="application/ld+json"
-          dangerouslySetInnerHTML={{
-            __html: JSON.stringify({
-              "@context": "https://schema.org",
-              "@type": "Organization",
-              name: "Центр Внедрения",
-              description: "Внедрение электронного документооборота и автоматизация бизнес процессов",
-              url: "https://centr-vnedreniya.ru",
-              service: ["Внедрение ЭДО", "Интеграция 1С", "Настройка Диадок", "Настройка СБИС"],
-            }),
-          }}
-        />
-      </Head>
+      
     <div className="min-h-screen text-neutral-900 bg-gradient-to-b from-[#faf9f5] via-[#f3efe7] to-[#faf9f5]">
 
       {/* HEADER */}
